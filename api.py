@@ -14,8 +14,12 @@ def about():
 def contact():
     return "Contact me at www.user.com"
 
-
-
+@app.route("/hello", methods=["POST"])
+def hello():
+    data = request.form.get("name")
+    if not data:
+        return "No name provided in POST REQUEST", 400
+    return f"Hello, {data.capitalize()}! Heyy cham how are you doing??"
 
 
     
